@@ -1,6 +1,6 @@
 import React from 'react'
 
-function TransformationsPage({ params: { id } }) {
+function TransformationsPage({ params: { id } }: { params: { id: string } }) {
     return (
         <div>TransformationsPage {id}</div>
     )
