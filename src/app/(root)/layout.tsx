@@ -5,20 +5,22 @@ import React from 'react'
 
 function Layout({ children }: { children: React.ReactNode }) {
     return (
-        <main className='root'>
-            {/* sidebar */}
-            <Sidebar />
-
-
-
+        <>
             <MobileNav />
+            <main className='root'>
+                {/* sidebar */}
+                <Sidebar />
 
-            <div className="root-container"><div className="wrapper">
 
-                {children}
-            </div></div>
 
-        </main>
+
+                <div className="root-container"><div className="wrapper">
+
+                    {children}
+                </div></div>
+
+            </main>
+        </>
     )
 }
 
