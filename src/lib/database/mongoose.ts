@@ -1,4 +1,3 @@
-import exp from "constants";
 import mongoose, { Mongoose } from "mongoose";
 
 const MONGODB_URI = process.env.MONGODB_URI;
@@ -24,7 +23,7 @@ export const connectToDatabase = async () => {
   cached.promise =
     cached.promise ||
     mongoose.connect(MONGODB_URI, {
-      dbName: "saasimager",
+      dbName: "Saasimager",
       bufferCommands: false,
     });
 
