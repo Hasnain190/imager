@@ -1,34 +1,7 @@
-import { Document, Schema, model, models } from "mongoose";
-export interface IUser {
-  clerkId: string;
-  planId?: string;
-  creditBalance: number;
-  firstName?: string;
-  lastName?: string;
-  username: string;
-  email: string;
-  password: string;
-  photo: string;
-}
+import { Schema, model, models } from "mongoose";
 
-export const UserSchema = new Schema({
+const UserSchema = new Schema({
   clerkId: {
-    type: String,
-    required: true,
-    unique: true,
-  },
-  planId: { type: String },
-  creditBalance: {
-    type: Number,
-    default: 10,
-  },
-  firstName: {
-    type: String,
-  },
-  lastName: {
-    type: String,
-  },
-  username: {
     type: String,
     required: true,
     unique: true,
@@ -38,15 +11,31 @@ export const UserSchema = new Schema({
     required: true,
     unique: true,
   },
-  password: {
+  username: {
     type: String,
     required: true,
+    unique: true,
   },
   photo: {
     type: String,
     required: true,
   },
+  firstName: {
+    type: String,
+  },
+  lastName: {
+    type: String,
+  },
+  planId: {
+    type: Number,
+    default: 1,
+  },
+  creditBalance: {
+    type: Number,
+    default: 10,
+  },
 });
 
-const User = models.User || model("User", UserSchema);
+const User = models?.User || model("User", UserSchema);
+
 export default User;

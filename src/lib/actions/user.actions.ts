@@ -10,11 +10,10 @@ import { handleError } from "../utils";
 export async function createUser(user: CreateUserParams) {
   try {
     await connectToDatabase();
-    console.log("dummy log");
 
     const newUser = await User.create(user);
 
-    console.log(newUser);
+    console.log(newUser, "user.actions at line 17");
     return JSON.parse(JSON.stringify(newUser));
   } catch (error) {
     handleError(error);
