@@ -69,8 +69,8 @@ export async function POST(req: Request) {
       photo: image_url,
     };
 
-    console.log("user", user);
     const newUser = await createUser(user);
+    console.log("user", newUser);
 
     console.log("newUser", newUser);
 
