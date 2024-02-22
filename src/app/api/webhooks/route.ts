@@ -68,9 +68,8 @@ export async function POST(req: Request) {
       lastName: last_name,
       photo: image_url,
     };
-
+    // error lies there
     const newUser = await createUser(user);
-    console.log("user", newUser);
 
     console.log("newUser", newUser);
 
