@@ -29,11 +29,21 @@ export async function POST(req: Request) {
     });
   }
 
-  console.log("you dummy");
   // Get the body
   const payload = await req.json();
   const body = JSON.stringify(payload);
 
+  console.log(
+    "you dummy",
+    "body ",
+    body,
+    "payload ",
+    payload,
+    "svix ",
+    svix_id,
+    svix_timestamp,
+    svix_signature
+  );
   // Create a new Svix instance with your secret.
   const wh = new Webhook(WEBHOOK_SECRET);
 
