@@ -28,6 +28,7 @@ import { CustomField } from './CustomField'
 import { AspectRatioKey, debounce, deepMergeObjects } from '@/lib/utils'
 import { updateCredits } from '@/lib/actions/user.actions'
 import MediaUploader from './MediaUploader'
+import TransformedImage from './TransformedImage'
 export const formSchema = z.object({
     title: z.string(),
     aspectRatio: z.string().optional(),
@@ -112,7 +113,7 @@ function TransformationForm({ action, data = null, type, userId, creditBalance, 
         setNewTransformation(null)
 
         startTransition(async () => {
-            // await updateCredits(userId, creditFee)
+            await updateCredits(userId, creditFee)
         })
 
     }
@@ -223,6 +224,16 @@ function TransformationForm({ action, data = null, type, userId, creditBalance, 
 
                         )}
                     />
+
+                    <TransformedImage
+                        image={image}
+                        type={type}
+                        title={form.getValues().title}
+                        isTransforming={isTransforming}
+                        setIsTransforming={setIsTransforming}
+                        transformationConfig={transformationConfig}
+                    />
+
                 </div>
                 <div className="flex flex-col gap-4">
                     <Button
