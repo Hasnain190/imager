@@ -1,8 +1,10 @@
+'use client'
 import React from 'react'
+
 import Image from 'next/image'
 import { Button } from "@/components/ui/button"
-import { CldImage } from 'next-cloudinary'
-import { dataUrl, debounce, getImageSize } from '@/lib/utils'
+import { CldImage, getCldImageUrl } from 'next-cloudinary'
+import { dataUrl, debounce, download, getImageSize } from '@/lib/utils'
 import { PlaceholderValue } from 'next/dist/shared/lib/get-img-props'
 export default function TransformedImage({
     image,
@@ -16,8 +18,14 @@ export default function TransformedImage({
 }: TransformedImageProps) {
 
 
-    const downloadHandler = () => {
-
+    const downloadHandler = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+        e.preventDefault()
+        download(getCldImageUrl({
+            width: image?.width,
+            height: image?.height,
+            src: image?.publicId,
+            ...transformationConfig
+        }), title)
     }
     return (
         <div className='flex flex-col gap-4'>
@@ -53,19 +61,20 @@ export default function TransformedImage({
                         onError={() => {
                             debounce(() => {
                                 setIsTransforming && setIsTransforming(false)
-                            }, 8000)
+                            }, 8000)()
                         }}
 
                         {...transformationConfig}
                     />
                     {isTransforming && (
-                        <div className="transformed-loader">
+                        <div className="transforming-loader">
                             <Image
                                 src="/assets/icons/spinner.svg"
                                 width={50}
                                 height={50}
-                                alt='Transforming'
+                                alt='spinner'
                             />
+                            <p className='text-white/80'>Please wait...</p>
                         </div>
                     )}
                 </div >
