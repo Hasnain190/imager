@@ -3,11 +3,11 @@ export interface IImage extends Document {
   title: string;
   transformationType: string;
   publicId: string;
-  secureUrl: URL;
+  secureURL: string;
   height?: number;
   width?: number;
-  config?: Record<string, unknown>;
-  transformationUrl?: URL;
+  config?: object;
+  transformationUrl?: string;
   aspectRatio?: string;
   color?: string;
   prompt?: string;
@@ -16,8 +16,8 @@ export interface IImage extends Document {
     firstName: string;
     lastName: string;
   }; // Assuming the ObjectId is converted to a string representation
-  createdAt: Date;
-  updatedAt: Date;
+  createdAt?: Date;
+  updatedAt?: Date;
 }
 
 const ImageSchema = new Schema({
@@ -33,8 +33,8 @@ const ImageSchema = new Schema({
     type: String,
     required: true,
   },
-  secureUrl: {
-    type: URL,
+  secureURL: {
+    type: String,
     required: true,
   },
 
@@ -49,7 +49,7 @@ const ImageSchema = new Schema({
   },
 
   transformationUrl: {
-    type: URL,
+    type: String,
   },
   aspectRatio: {
     type: String,

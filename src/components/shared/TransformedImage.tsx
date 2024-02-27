@@ -23,15 +23,11 @@ export default function TransformedImage({
         <div className='flex flex-col gap-4'>
             <div className="flex-between">
                 <h3 className='h3-bold text-dark-600'>Transformed</h3>
-
                 {hasDownload && (
                     <Button
                         className='download-btn'
                         onClick={downloadHandler}
                     >
-
-
-
                         <Image
                             src="/assets/icons/download.svg"
                             alt="download"
@@ -49,11 +45,10 @@ export default function TransformedImage({
                         width={getImageSize(type, image, "width")}
                         height={getImageSize(type, image, "height")}
                         src={image?.publicId}
-                        alt={image.title}
+                        alt={image?.title || 'transformed-image'}
                         sizes={"(max-width: 767px) 100vw, 50vw"}
                         placeholder={dataUrl as PlaceholderValue}
                         className="transformed-image"
-
                         onLoad={() => { setIsTransforming && setIsTransforming(false) }}
                         onError={() => {
                             debounce(() => {
@@ -65,15 +60,12 @@ export default function TransformedImage({
                     />
                     {isTransforming && (
                         <div className="transformed-loader">
-
-
                             <Image
                                 src="/assets/icons/spinner.svg"
                                 width={50}
                                 height={50}
                                 alt='Transforming'
                             />
-
                         </div>
                     )}
                 </div >
