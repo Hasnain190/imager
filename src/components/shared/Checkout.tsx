@@ -65,7 +65,7 @@ const Checkout = ({
 
 
 
-    const onSuccessHandler: Function | undefined = async (details, data) => {
+    const onSuccessHandler: Function | undefined = async (details: { payer: { name: { given_name: string; }; }; }, data: { orderID: any; }) => {
         alert("Transaction completed by " + details.payer.name.given_name);
 
         await createTransactions({
