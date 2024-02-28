@@ -1,3 +1,5 @@
+
+
 import type { Metadata } from "next";
 import { Inter, IBM_Plex_Sans } from "next/font/google";
 import "./globals.css";
@@ -23,11 +25,15 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
   return (
     <ClerkProvider appearance={{ variables: { colorPrimary: "#624cf5" } }}>
+
       <html lang="en">
         <body className={cn('font-IBM antialiased', IBMPlex.variable)}>{children}</body>
       </html>
+
     </ClerkProvider>
+
   );
 }

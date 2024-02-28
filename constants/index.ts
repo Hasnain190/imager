@@ -118,7 +118,7 @@ export const plans = [
     ],
   },
 ];
-
+export const paypalUrl = "https://api-m.sandbox.paypal.com/v1/oauth2/token";
 export const transformationTypes = {
   restore: {
     type: "restore",
