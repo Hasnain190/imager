@@ -30,52 +30,52 @@ function MobileNav() {
                 </SignedOut>
             </Link>
             <nav className='flex gap-2'>
-                <SignedIn>
-                    <UserButton afterSignOutUrl="/" />
+                {/* <SignedIn> */}
+                <UserButton afterSignOutUrl="/" />
 
-                    <Sheet>
-                        <SheetTrigger>
-                            <Image
-                                src={'/assets/icons/menu.svg'}
-                                alt='menu'
-                                height={32}
-                                width={32}
-                                className='cursor-pointer'
-                            />
-                        </SheetTrigger>
-                        <SheetContent className='sheet-content sm:w-64'>
-                            <div>
-                                <Image src={'/assets/images/logo-text.svg'} alt='logo' width={180} height={28} />
+                <Sheet>
+                    <SheetTrigger>
+                        <Image
+                            src={'/assets/icons/menu.svg'}
+                            alt='menu'
+                            height={32}
+                            width={32}
+                            className='cursor-pointer'
+                        />
+                    </SheetTrigger>
+                    <SheetContent className='sheet-content sm:w-64'>
+                        <div>
+                            <Image src={'/assets/images/logo-text.svg'} alt='logo' width={180} height={28} />
 
-                                <ul className="header-nav_elements">
-                                    {navLinks.slice(0, 6).map((link) => {
-                                        const isActive = link.route === pathname
+                            <ul className="header-nav_elements">
+                                {navLinks.slice(0, 6).map((link) => {
+                                    const isActive = link.route === pathname
 
-                                        return (
-                                            <li key={link.route} className={`header-nav_element group ${isActive && 'gradient-text '} p-1 flex whitespace-nowrap text-dark-700
+                                    return (
+                                        <li key={link.route} className={`header-nav_element group ${isActive && 'gradient-text '} p-1 flex whitespace-nowrap text-dark-700
                                             }`}>
-                                                <Link href={link.route} className='sidebar-link cursor-pointer'>
-                                                    <Image
-                                                        src={link.icon}
-                                                        alt="logo"
-                                                        width={24}
-                                                        height={24}
+                                            <Link href={link.route} className='sidebar-link cursor-pointer'>
+                                                <Image
+                                                    src={link.icon}
+                                                    alt="logo"
+                                                    width={24}
+                                                    height={24}
 
-                                                    />
-                                                    {link.label}
-                                                </Link>
+                                                />
+                                                {link.label}
+                                            </Link>
 
-                                            </li>
+                                        </li>
 
-                                        )
-                                    })}
-                                </ul>
+                                    )
+                                })}
+                            </ul>
 
-                            </div>
-                        </SheetContent>
-                    </Sheet>
+                        </div>
+                    </SheetContent>
+                </Sheet>
 
-                </SignedIn>
+                {/* </SignedIn> */}
 
             </nav>
 
