@@ -4,9 +4,7 @@ import React from 'react'
 import {
     Sheet,
     SheetContent,
-    SheetDescription,
-    SheetHeader,
-    SheetTitle,
+
     SheetTrigger,
 } from "@/components/ui/sheet"
 import Link from 'next/link'
@@ -23,8 +21,13 @@ function MobileNav() {
     return (
         <header className='header'>
 
-            <Link href='/' className='header-logo flex items-center gap-2 md:py-2'>
+            <Link href='/' className='header-logo flex justify-between items-center gap-2 md:py-2'>
                 <Image src="/assets/images/logo-text.svg" alt="logo" width={180} height={28} />
+                <SignedOut>
+                    <Button asChild className="button bg-purple-gradient bg-cover">
+                        <Link href="/sign-in">Login</Link>
+                    </Button>
+                </SignedOut>
             </Link>
             <nav className='flex gap-2'>
                 <SignedIn>
@@ -71,11 +74,9 @@ function MobileNav() {
                             </div>
                         </SheetContent>
                     </Sheet>
-                    <SignedOut>
-                        <Button asChild className="button bg-purple-gradient bg-cover">
-                            <Link href="/sign-in">Login</Link>
-                        </Button>
-                    </SignedOut> </SignedIn>
+
+                </SignedIn>
+
             </nav>
 
         </header>
