@@ -10,6 +10,9 @@ function Footer() {
                 realenlight.com
             </a>
             Thank you Sir Adrian Hajdin!
+              <a href="https://www.termsfeed.com/live/d67c378c-31b8-4223-8daa-53c7d05468bb">
+                Privacy Policy
+            </a>
         </div>
     )
 }
